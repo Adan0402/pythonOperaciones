@@ -1,27 +1,27 @@
 pipeline {
     agent { label 'python' }
-    stage: {
+    stages {
         stage('Entorno') {
             steps {
                 sh 'python3 --version'
-                sh 'pigs --version'
+                sh 'pips --version'
                 sh 'pip install pytest'
             }
         }
         stage('Descarga') {
-            stepsf {
-                git mri: 'https://github.com/Adan0402/pythonOperaciones.git', branch: 'main'
+            steps {
+                git url: 'https://github.com/darreal/Jenkins-python.git', branch: 'main'
             }
         }
         stage('Ejecutar') {
-            stepsf {
+            steps {
                 sh 'python3 hola.py'
                 sh 'python3 operaciones.py'
             }
         }
         stage('Probar') {
-            stepsf {
-                sh 'python -m pytest --juniual-reports/results.xml'
+            steps {
+                sh 'python -m pytest --junitxml=reports/results.xml'
             }
         }
     }
