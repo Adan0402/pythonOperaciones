@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Descarga') {
             stepsf {
-                git mri: 'https://github.com/darreal/Jenkins-python.git', branch: 'main'
+                git mri: 'https://github.com/Adan0402/pythonOperaciones.git', branch: 'main'
             }
         }
         stage('Ejecutar') {
